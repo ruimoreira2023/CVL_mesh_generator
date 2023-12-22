@@ -1,0 +1,47 @@
+INIT MASTER(S)
+NASTRAN SYSTEM(442)=-1,SYSTEM(319)=1
+ID exportPreamble,Femap
+SOL SEMODES
+CEND
+  TITLE = NX Nastran Modes Analysis Set
+  ECHO = NONE
+  DISPLACEMENT(PLOT) = ALL
+  SPCFORCE(PLOT) = ALL
+  ESE(THRESH=0.0) = ALL
+  METHOD = 1
+BEGIN BULK
+$ ***************************************************************************
+$   Written by : Femap with NX Nastran
+$   Version    : 11.4.1
+$   Translator : NX Nastran
+$   From Model : C:\Users\35191\Desktop\DPE\Numerical Study\Re_Matlab\exportPreamble.modfem
+$   Date       : Mon Jun 27 12:30:11 2022
+$   Output To  : C:\Users\35191\Desktop\DPE\Numerical Study\Re_Matlab\
+$ ***************************************************************************
+$
+PARAM,PRGPST,YES
+PARAM,POST,-1
+PARAM,OGEOM,NO
+PARAM,AUTOSPC,YES
+PARAM,GRDPNT,0
+EIGRL          1                      20       0                    MASS
+CORD2C         1       0      0.      0.      0.      0.      0.      1.+FEMAPC1
++FEMAPC1      1.      0.      1.        
+CORD2S         2       0      0.      0.      0.      0.      0.      1.+FEMAPC2
++FEMAPC2      1.      0.      1.        
+$ Femap with NX Nastran Property 1 : Membrane BL alum
+PSHELL         1       1      0.       1               1              0.
+$ Femap with NX Nastran Property 2 : Membrane VEM visco
+PSHELL         2       2      0.       2               2              0.
+$ Femap with NX Nastran Property 3 : Membrane CL alum
+PSHELL         3       1      0.       1               1              0.
+$ Femap with NX Nastran Property 4 : BL alum
+PSOLID         4       1       0        
+$ Femap with NX Nastran Property 5 : VEM visco
+PSOLID         5       2       0        
+$ Femap with NX Nastran Property 6 : CL alum
+PSOLID         6       1       0        
+$ Femap with NX Nastran Material 1 : Aluminium
+MAT1           1   7.+10              .3   2700.      0.      0.        
+$ Femap with NX Nastran Material 2 : Viscoelastic
+MAT1           21000000.             .49   1140.      0.      0.        
